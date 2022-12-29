@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">  
+	
+	<context:component-scan base-package="com.acc.spring3"/>
+	
+	
+	<bean id="airtel_single" class="com.acc.Airtel" />
+	<bean id="airtel_proto" class="com.acc.Airtel" scope="prototype" />
+	<bean id="vodaphone" class="com.acc.Vodaphone" />
+	<bean id="stu_setter" class="com.acc.spring2.Student">
+		<property name="name" value="Tim" />
+		<property name="address" value="SG" />
+	</bean>
+	<bean id="stu_construct" class="com.acc.spring2.Student">
+		<constructor-arg name="name" value="Jim" />
+		<constructor-arg name="address" value="MY" />
+		<constructor-arg name="age" value="95" />
+	</bean>
+	<bean id="stu_mix" class="com.acc.spring2.Student">
+		<constructor-arg name="name" value="Mary" />
+		<constructor-arg name="address" value="NY" />
+		<property name="age" value="88" />
+	</bean>
+	<bean id="address" class="com.acc.spring3.Address">
+		<constructor-arg name="location" value="Bedok" />
+	</bean>
+	<bean id="employee" class="com.acc.spring3.Employee">
+		<constructor-arg name="name" value="Jimmy" />
+		<constructor-arg name="address" ref="address" />
+		<property name="number" value="99" />
+	</bean>
+	
+
+</beans>
